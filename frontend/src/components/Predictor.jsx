@@ -94,7 +94,8 @@ export default function Predictor({ formData, setFormData, onCalculate, activePr
         alco:        parseInt(formData.alco, 10),
         active:      parseInt(formData.active, 10),
       };
-      const res = await fetch('http://localhost:8000/predict', {
+      const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiBase}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -190,16 +191,16 @@ export default function Predictor({ formData, setFormData, onCalculate, activePr
                 <input
                   type="range"
                   name="age"
-                  min="25"
-                  max="80"
+                  min="18"
+                  max="100"
                   value={formData.age}
                   onChange={handleChange}
                   className="range-input"
                 />
                 <div className="range-ticks">
-                  <span>25</span>
+                  <span>18</span>
                   <span>50</span>
-                  <span>80</span>
+                  <span>100</span>
                 </div>
               </div>
 

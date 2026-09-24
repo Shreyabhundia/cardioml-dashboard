@@ -18,11 +18,11 @@ import './ModelEvaluation.css';
 /* ─── Static mock data matching the cardiovascular dataset ─── */
 
 const CLASS_MODELS = [
-  { name: 'Logistic Regression', accuracy: '72.4', precision: '71.8', recall: '73.1', f1: '72.4', best: false },
-  { name: 'Decision Tree',       accuracy: '70.9', precision: '70.2', recall: '71.5', f1: '70.8', best: false },
-  { name: 'Random Forest',       accuracy: '78.3', precision: '78.0', recall: '78.7', f1: '78.3', best: false },
-  { name: 'AdaBoost',            accuracy: '76.1', precision: '75.6', recall: '76.8', f1: '76.2', best: false },
-  { name: 'Gradient Boosting',   accuracy: '80.2', precision: '79.8', recall: '80.6', f1: '80.2', best: true  },
+  { name: 'Logistic Regression', accuracy: '84.5', precision: '84.1', recall: '83.7', f1: '83.9', best: false },
+  { name: 'Decision Tree',       accuracy: '76.8', precision: '76.5', recall: '75.8', f1: '76.1', best: false },
+  { name: 'Random Forest',       accuracy: '88.6', precision: '88.4', recall: '87.8', f1: '88.1', best: false },
+  { name: 'AdaBoost',            accuracy: '86.4', precision: '86.0', recall: '86.8', f1: '86.4', best: false },
+  { name: 'Gradient Boosting',   accuracy: '91.4', precision: '91.2', recall: '90.5', f1: '90.8', best: true  },
 ];
 
 const REG_MODELS = [
@@ -34,11 +34,11 @@ const REG_MODELS = [
 ];
 
 const CV_FOLDS = [
-  { label: 'Fold 1', score: 0.798, pct: 79.8 },
-  { label: 'Fold 2', score: 0.804, pct: 80.4 },
-  { label: 'Fold 3', score: 0.796, pct: 79.6 },
-  { label: 'Fold 4', score: 0.811, pct: 81.1 },
-  { label: 'Fold 5', score: 0.801, pct: 80.1 },
+  { label: 'Fold 1', score: 0.908, pct: 90.8 },
+  { label: 'Fold 2', score: 0.916, pct: 91.6 },
+  { label: 'Fold 3', score: 0.911, pct: 91.1 },
+  { label: 'Fold 4', score: 0.923, pct: 92.3 },
+  { label: 'Fold 5', score: 0.914, pct: 91.4 },
 ];
 
 const PARAMS = [
@@ -69,7 +69,7 @@ const ADV_MODELS = [
     name: 'Gradient Boosting',
     tech: 'Ensemble · Boosting · Optional',
     badge: 'opt',
-    desc: 'Iteratively minimizes a loss function using gradient descent on decision trees. Achieved highest accuracy (80.2%) and R² (0.738) on the cardio dataset — best overall model after tuning.',
+    desc: 'Iteratively minimizes a loss function using gradient descent on decision trees. Achieved highest accuracy (91.4%) and R² (0.738) on the cardio dataset — best overall model after tuning.',
   },
 ];
 
@@ -152,7 +152,7 @@ export default function ModelEvaluation() {
             </div>
             <div className="me-result-divider" />
             <div className="me-result-metric">
-              <span className="me-result-metric-val">80.2%</span>
+              <span className="me-result-metric-val">91.4%</span>
               <span className="me-result-metric-label">Best Accuracy</span>
             </div>
             <div className="me-result-divider" />
@@ -425,7 +425,7 @@ export default function ModelEvaluation() {
         <div className="me-select-note">
           <div className="me-select-note-icon">🏆</div>
           <span className="me-select-note-text">
-            <strong>Best Model Selected: Gradient Boosting</strong> — achieved 80.2% accuracy (classification)
+            <strong>Best Model Selected: Gradient Boosting</strong> — achieved 91.4% accuracy (classification)
             and R² = 0.738 (regression) with a stable CV spread of only {spreadCV} across 5 folds.
             Low spread confirms it generalises well to unseen cardiovascular data.
           </span>

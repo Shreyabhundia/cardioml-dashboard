@@ -49,10 +49,10 @@ def load_model():
 
 # ─── Request / Response schemas ───────────────────────────────────────────────
 class PredictRequest(BaseModel):
-    age:         float = Field(..., ge=18,  le=100, description="Age in years")
+    age:         float = Field(..., ge=1,   le=100, description="Age in years")
     gender:      int   = Field(..., ge=1,   le=2,   description="1=Female, 2=Male")
-    height:      float = Field(..., ge=100, le=250, description="Height in cm")
-    weight:      float = Field(..., ge=20,  le=300, description="Weight in kg")
+    height:      float = Field(..., ge=40,  le=250, description="Height in cm")
+    weight:      float = Field(..., ge=5,   le=300, description="Weight in kg")
     ap_hi:       float = Field(..., ge=60,  le=260, description="Systolic blood pressure (mmHg)")
     ap_lo:       float = Field(..., ge=30,  le=200, description="Diastolic blood pressure (mmHg)")
     cholesterol: int   = Field(..., ge=1,   le=3,   description="1=Normal, 2=Above Normal, 3=Well Above Normal")
