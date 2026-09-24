@@ -1,0 +1,676 @@
+/* =========================================================
+   CARDIOML NAVBAR
+   Clean | Professional | Responsive
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+}
+
+.navbar button {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   MAIN NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   CONTAINER
+
+   This controls the left/right spacing of the navbar.
+   ========================================================= */
+
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+
+/* =========================================================
+   MAIN ROW
+
+   Brand     Navigation     CTA
+   ========================================================= */
+
+.navbar-main {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   BRAND ICON
+   ========================================================= */
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #0284c7;
+
+  background: linear-gradient(
+    135deg,
+    #e0f2fe,
+    #f0f9ff
+  );
+
+  border: 1px solid #bae6fd;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 14px rgba(14, 116, 144, 0.14);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.navbar-brand:hover .brand-icon {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 7px 18px rgba(14, 116, 144, 0.2);
+}
+
+
+/* =========================================================
+   HEARTBEAT ANIMATION
+   ========================================================= */
+
+.heartbeat-icon {
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+
+@keyframes heartbeat {
+
+  0%,
+  45%,
+  100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.08);
+  }
+
+  30% {
+    transform: scale(0.98);
+  }
+}
+
+
+/* =========================================================
+   BRAND TEXT
+   ========================================================= */
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-width: 0;
+}
+
+
+/* CardioML */
+
+.brand-name {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 20px;
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.6px;
+}
+
+
+.brand-name span {
+  color: #0891b2;
+}
+
+
+/* Subtitle */
+
+.brand-subtitle {
+  margin-top: 5px;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+   ========================================================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 4px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   NAV ITEM
+   ========================================================= */
+
+.nav-item {
+  min-height: 38px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 16px;
+
+  margin: 0;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: transparent;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.nav-item:hover:not(:disabled) {
+  color: #0f172a;
+
+  background: #f1f5f9;
+}
+
+
+/* Active */
+
+.nav-item.active {
+  color: #0369a1;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 7px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Disabled */
+
+.nav-item.disabled {
+  color: #cbd5e1;
+
+  background: transparent;
+
+  cursor: not-allowed;
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   ASSESSMENT BUTTON
+   ========================================================= */
+
+.assessment-button {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+
+  padding: 0 16px;
+
+  margin: 0;
+
+  border: none;
+
+  border-radius: 10px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #0284c7,
+    #0891b2
+  );
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(8, 145, 178, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+.assessment-button:hover {
+  transform: translateY(-1px);
+
+  filter: brightness(0.97);
+
+  box-shadow:
+    0 8px 20px rgba(8, 145, 178, 0.25);
+}
+
+
+.assessment-button:active {
+  transform: translateY(0);
+}
+
+
+/* Desktop */
+
+.desktop-button {
+  min-width: 154px;
+}
+
+
+/* Mobile */
+
+.mobile-button {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+.mobile-nav {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .navbar-container {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+
+  .navbar-main {
+    gap: 18px;
+  }
+
+
+  .desktop-nav {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  .nav-item {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .nav-item span {
+    display: none;
+  }
+
+
+  .nav-item {
+    width: 38px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  .desktop-button {
+    min-width: 42px;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  .desktop-button span {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .navbar-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  /* Main row */
+
+  .navbar-main {
+    min-height: 68px;
+
+    gap: 12px;
+  }
+
+
+  /* Hide desktop navigation */
+
+  .desktop-nav,
+  .desktop-button {
+    display: none;
+  }
+
+
+  /* Show mobile CTA */
+
+  .mobile-button {
+    display: inline-flex;
+  }
+
+
+  /* =====================================================
+     BRAND
+     ===================================================== */
+
+  .brand-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+  }
+
+
+  .brand-text {
+    min-width: 0;
+  }
+
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+
+  .brand-subtitle {
+    margin-top: 4px;
+
+    font-size: 8px;
+
+    letter-spacing: 1.2px;
+  }
+
+
+  /* =====================================================
+     MOBILE NAV
+     ===================================================== */
+
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding:
+      0
+      2px
+      13px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+
+  .mobile-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* Mobile item */
+
+  .mobile-nav-item {
+    min-height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding:
+      0
+      14px;
+
+    margin: 0;
+
+    border: 1px solid transparent;
+
+    border-radius: 999px;
+
+    color: #64748b;
+
+    background: #f1f5f9;
+
+    font-size: 11px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+  }
+
+
+  /* Hover */
+
+  .mobile-nav-item:hover:not(:disabled) {
+    color: #334155;
+
+    background: #e2e8f0;
+  }
+
+
+  /* Active */
+
+  .mobile-nav-item.active {
+    color: #0369a1;
+
+    background: #ffffff;
+
+    border-color: #e2e8f0;
+
+    box-shadow:
+      0 2px 6px rgba(15, 23, 42, 0.07);
+  }
+
+
+  /* Disabled */
+
+  .mobile-nav-item.disabled {
+    color: #cbd5e1;
+
+    background: transparent;
+
+    cursor: not-allowed;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .navbar-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .navbar-main {
+    min-height: 64px;
+  }
+
+
+  .brand-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .brand-name {
+    font-size: 17px;
+  }
+
+
+  .brand-subtitle {
+    display: none;
+  }
+
+
+  .mobile-button {
+    min-height: 36px;
+
+    padding: 0 12px;
+  }
+}

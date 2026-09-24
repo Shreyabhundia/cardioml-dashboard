@@ -1,0 +1,494 @@
+/* ==========================================================================
+   Design Tokens - Soft Color Palette
+   ========================================================================== */
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Muted Slate Scale */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Soft Palette Tone Colors */
+  --soft-rose-bg: #fdf2f4;
+  --soft-rose-border: #f8d7da;
+  --soft-rose-text: #b94a53;
+
+  --soft-amber-bg: #fffbf0;
+  --soft-amber-border: #fce8c5;
+  --soft-amber-text: #a86c23;
+
+  --soft-emerald-bg: #f2f9f5;
+  --soft-emerald-border: #d2ebe0;
+  --soft-emerald-text: #3c7d61;
+
+  --soft-indigo-bg: #f4f6fd;
+  --soft-indigo-border: #dbdf0;
+  --soft-indigo-text: #5364c7;
+
+  /* Radii & Shadows */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 4px 20px -4px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Layout Containers & Keyframes
+   ========================================================================== */
+.result-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  font-family: var(--font-sans);
+  color: var(--slate-800);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeUp 0.4s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--slate-200);
+  box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Banner Card & Radial Gauge
+   ========================================================================== */
+.banner-card {
+  padding: 1.5rem;
+  border-top-width: 4px;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .banner-card {
+    padding: 2.25rem;
+  }
+}
+
+/* Soft Glow Styles */
+.glow-high { box-shadow: 0 16px 36px -12px rgba(185, 74, 83, 0.15), var(--shadow-card); }
+.glow-moderate { box-shadow: 0 16px 36px -12px rgba(168, 108, 35, 0.15), var(--shadow-card); }
+.glow-low { box-shadow: 0 16px 36px -12px rgba(60, 125, 97, 0.15), var(--shadow-card); }
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .banner-content {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.banner-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .banner-header {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.banner-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .banner-title {
+    font-size: 2.25rem;
+  }
+}
+
+.banner-description {
+  font-size: 0.8125rem;
+  color: var(--slate-500);
+  max-width: 28rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Gauge SVG Styling */
+.gauge-wrapper {
+  position: relative;
+  width: 9.5rem;
+  height: 9.5rem;
+  flex-shrink: 0;
+}
+
+.gauge-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gauge-bg {
+  stroke: var(--slate-100);
+}
+
+.gauge-fill {
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gauge-high { stroke: var(--soft-rose-text); }
+.gauge-moderate { stroke: var(--soft-amber-text); }
+.gauge-low { stroke: var(--soft-emerald-text); }
+
+.gauge-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-value {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--slate-900);
+  line-height: 1;
+}
+
+.gauge-label {
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--slate-400);
+  margin-top: 0.25rem;
+}
+
+/* Summary Chips Grid */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--slate-100);
+}
+
+@media (min-width: 1024px) {
+  .summary-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.summary-chip {
+  border-radius: var(--radius-xl);
+  background-color: var(--slate-50);
+  border: 1px solid var(--slate-200);
+  padding: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.summary-chip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--slate-400);
+}
+
+.summary-chip-value {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--slate-900);
+}
+
+.summary-chip-sub {
+  font-size: 0.6875rem;
+  color: var(--slate-400);
+}
+
+/* ==========================================================================
+   Drivers and Advice Section
+   ========================================================================== */
+.drivers-advice-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .drivers-advice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.details-card {
+  padding: 1.5rem;
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.details-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.icon-box {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.icon-box.soft-indigo {
+  background-color: var(--soft-indigo-bg);
+  color: var(--soft-indigo-text);
+  border-color: var(--soft-indigo-border);
+}
+
+.icon-box.soft-emerald {
+  background-color: var(--soft-emerald-bg);
+  color: var(--soft-emerald-text);
+  border-color: var(--soft-emerald-border);
+}
+
+.details-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin: 0;
+}
+
+.details-hint {
+  font-size: 0.6875rem;
+  color: var(--slate-400);
+}
+
+.details-body {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empty-text {
+  font-size: 0.75rem;
+  color: var(--slate-500);
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+.contributor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--slate-50);
+  border: 1px solid var(--slate-200);
+  padding: 0.75rem 1rem;
+}
+
+.contributor-info {
+  min-width: 0;
+}
+
+.contributor-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--slate-900);
+}
+
+.contributor-val {
+  font-size: 0.6875rem;
+  color: var(--slate-500);
+  margin-top: 0.125rem;
+}
+
+.contributor-val strong {
+  color: var(--slate-700);
+}
+
+/* Recommendation List */
+.recommendation-list {
+  padding-top: 1rem;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--slate-50);
+  border: 1px solid var(--slate-200);
+  padding: 0.75rem 1rem;
+}
+
+.check-icon-wrapper {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--radius-full);
+  background-color: var(--soft-emerald-border);
+  color: var(--soft-emerald-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.recommendation-text {
+  font-size: 0.75rem;
+  color: var(--slate-700);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Actions Bar & Buttons
+   ========================================================================== */
+.actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.actions-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+/* Soft Badges */
+.badge-high, .pill-high {
+  background-color: var(--soft-rose-bg);
+  color: var(--soft-rose-text);
+  border-color: var(--soft-rose-border);
+}
+
+.badge-moderate, .pill-moderate {
+  background-color: var(--soft-amber-bg);
+  color: var(--soft-amber-text);
+  border-color: var(--soft-amber-border);
+}
+
+.badge-low, .pill-protective {
+  background-color: var(--soft-emerald-bg);
+  color: var(--soft-emerald-text);
+  border-color: var(--soft-emerald-border);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--soft-indigo-text);
+  color: #ffffff;
+  border: 1px solid var(--soft-indigo-text);
+  box-shadow: 0 2px 6px rgba(83, 100, 199, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: #4252b5;
+}
+
+.btn-outline {
+  background-color: #ffffff;
+  border: 1px solid var(--slate-200);
+  color: var(--slate-700);
+}
+
+.btn-outline:hover {
+  background-color: var(--slate-50);
+  border-color: var(--slate-300);
+}
+
+.text-indigo {
+  color: var(--soft-indigo-text);
+}
+
+/* Icon Sizing Utility Classes */
+.icon-xs { width: 0.75rem; height: 0.75rem; }
+.icon-sm { width: 0.875rem; height: 0.875rem; }
+.icon-md { width: 1rem; height: 1rem; }
